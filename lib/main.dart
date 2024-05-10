@@ -1,6 +1,4 @@
-import 'package:dreampage/views/landing_page/landing_page.dart';
-import 'package:dreampage/views/login/sign_in/sign_in_page.dart';
-import 'package:dreampage/views/login/sign_up/sign_up_page.dart';
+import 'package:dreampage/core/routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,12 +10,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const SignInPageProvider(),
+      routerConfig: appRoutes,
     );
   }
 }
