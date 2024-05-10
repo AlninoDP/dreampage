@@ -1,4 +1,5 @@
 import 'package:dreampage/views/landing_page/landing_page.dart';
+import 'package:dreampage/views/login/sign_in/sign_in_page.dart';
 import 'package:dreampage/views/login/sign_up/sign_up_page.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const SignUpPageProvider(),
+      home: const SignInPageProvider(),
     );
   }
 }

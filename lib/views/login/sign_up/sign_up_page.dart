@@ -85,11 +85,16 @@ class SignUpPage extends StatelessWidget {
                 RichText(
                     text: TextSpan(
                   text: 'Already have an account ? ',
+                  style: const TextStyle(
+                    color: Color(0xff0D6EFD),
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
                   children: [
                     TextSpan(
                       text: 'Sign in',
                       style: const TextStyle(
-                        color: Colors.blue,
+                        color: Color(0xff0D6EFD),
                         decoration: TextDecoration.underline,
                       ),
                       recognizer: TapGestureRecognizer()
