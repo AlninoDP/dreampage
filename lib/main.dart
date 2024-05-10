@@ -1,4 +1,5 @@
-import 'package:dreampage/views/welcome/welcome_page.dart';
+import 'package:dreampage/views/landing_page/landing_page.dart';
+import 'package:dreampage/views/login/sign_up/sign_up_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const WelcomePage(),
+      home: const SignUpPageProvider(),
     );
   }
 }
