@@ -4,6 +4,7 @@ import 'package:dreampage/views/login/widgets/custom_button.dart';
 import 'package:dreampage/views/login/widgets/custom_textfield.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 class SignInPage extends StatelessWidget {
@@ -86,7 +87,8 @@ class SignInPage extends StatelessWidget {
                 CustomButton(
                   text: 'Sign In',
                   onTap: () {
-                    //TODO:Implement ontap function
+                    //TODO:Implement proper login ontap function
+                    context.push('/main');
                   },
                 ),
 

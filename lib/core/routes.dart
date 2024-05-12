@@ -1,5 +1,6 @@
 import 'package:dreampage/views/landing_page/landing_page.dart';
 import 'package:dreampage/views/login/login_page.dart';
+import 'package:dreampage/views/main_page/main_page.dart';
 import 'package:dreampage/views/splash_screen/splash_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
@@ -34,5 +35,9 @@ final appRoutes = GoRouter(
         return LoginPageWrapper(initialPage: initialPage);
       },
     ),
+    GoRoute(
+      path: '/main',
+      builder: (context, state) => const MainPageProvider(),
+    )
   ],
 );
