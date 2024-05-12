@@ -6,18 +6,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SignUpPageProvider extends StatelessWidget {
-  const SignUpPageProvider({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => LoginPageProvider(),
-      child: const SignUpPage(),
-    );
-  }
-}
-
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
 
@@ -76,8 +64,13 @@ class SignUpPage extends StatelessWidget {
                 const SizedBox(height: 40),
 
                 // button sign up
-                //TODO:Implement ontap function
-                const CustomButton(text: 'Sign Up'),
+
+                CustomButton(
+                  text: 'Sign Up',
+                  onTap: () {
+                    //TODO:Implement ontap function
+                  },
+                ),
 
                 const SizedBox(height: 40),
 
@@ -86,21 +79,19 @@ class SignUpPage extends StatelessWidget {
                     text: TextSpan(
                   text: 'Already have an account ? ',
                   style: const TextStyle(
-                    color: Color(0xff0D6EFD),
                     fontSize: 16,
-                    fontWeight: FontWeight.bold,
                   ),
                   children: [
                     TextSpan(
                       text: 'Sign in',
                       style: const TextStyle(
                         color: Color(0xff0D6EFD),
-                        decoration: TextDecoration.underline,
                       ),
                       recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          // TODO: Implement ontap function
-                        },
+                        ..onTap = () => Provider.of<LoginPageProvider>(
+                              context,
+                              listen: false,
+                            ).navigateToPage(0),
                     ),
                   ],
                 ))
