@@ -1,5 +1,6 @@
 import 'package:dreampage/components/app_background.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -31,7 +32,10 @@ class LandingPage extends StatelessWidget {
                   width: 300,
                   height: 60,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => context.pushNamed(
+                      'login',
+                      pathParameters: {'initialPage': '0'},
+                    ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
@@ -53,7 +57,10 @@ class LandingPage extends StatelessWidget {
                   width: 300,
                   height: 60,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => context.pushNamed(
+                      'login',
+                      pathParameters: {'initialPage': '1'},
+                    ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xffA28D4F),
                       shape: RoundedRectangleBorder(
