@@ -1,6 +1,5 @@
 import 'package:dreampage/views/landing_page/landing_page.dart';
-import 'package:dreampage/views/login/sign_in/sign_in_page.dart';
-import 'package:dreampage/views/login/sign_up/sign_up_page.dart';
+import 'package:dreampage/views/login/login_page.dart';
 import 'package:dreampage/views/splash_screen/splash_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
@@ -10,6 +9,7 @@ final appRoutes = GoRouter(
   routes: [
     GoRoute(
       path: '/',
+      name: 'landing',
       pageBuilder: (context, state) => CustomTransitionPage(
         transitionDuration: const Duration(seconds: 2),
         child: const LandingPage(),
@@ -23,15 +23,16 @@ final appRoutes = GoRouter(
     ),
     GoRoute(
       path: '/splash',
+      name: 'splash',
       builder: (context, state) => const SplashScreen(),
     ),
     GoRoute(
-      path: '/sign_in',
-      builder: (context, state) => const SignInPageProvider(),
+      path: '/login/:initialPage',
+      name: 'login',
+      builder: (context, state) {
+        final initialPage = int.parse(state.pathParameters['initialPage']!);
+        return LoginPageWrapper(initialPage: initialPage);
+      },
     ),
-    GoRoute(
-      path: '/sign_up',
-      builder: (context, state) => const SignUpPageProvider(),
-    )
   ],
 );
