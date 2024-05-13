@@ -1,3 +1,4 @@
+import 'package:dreampage/views/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 class NavigationProvider extends ChangeNotifier {
@@ -57,12 +58,7 @@ class NavigationProvider extends ChangeNotifier {
   ];
 
   final List<Widget> pages = [
-    Container(
-      width: double.infinity,
-      height: double.infinity,
-      color: Colors.red,
-      child: Text('1'),
-    ),
+    HomePage(),
     Container(
       width: double.infinity,
       height: double.infinity,
