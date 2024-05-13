@@ -22,8 +22,11 @@ class MainPage extends StatelessWidget {
     return SafeArea(
       top: true,
       child: Scaffold(
+        extendBody: true,
         body: Consumer<NavigationProvider>(builder: (context, provider, _) {
           return PageView(
+            controller: provider.pageController,
+            onPageChanged: (index) => provider.currentIndex = index,
             children: provider.pages,
           );
         }),
@@ -32,10 +35,13 @@ class MainPage extends StatelessWidget {
             return ClipPath(
               clipper: _BottomAppBarClipper(),
               child: BottomNavigationBar(
+                onTap: (index) => provider.changePage(index),
+                currentIndex: provider.currentIndex,
                 showSelectedLabels: false,
                 showUnselectedLabels: false,
                 type: BottomNavigationBarType.fixed,
                 backgroundColor: const Color(0xff121921).withOpacity(0.75),
+                selectedItemColor: const Color(0xffA28D4F),
                 items: provider.bottomNavigationBarItems,
               ),
             );
