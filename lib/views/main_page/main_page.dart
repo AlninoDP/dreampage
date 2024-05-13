@@ -22,6 +22,7 @@ class MainPage extends StatelessWidget {
     return SafeArea(
       top: true,
       child: Scaffold(
+        extendBodyBehindAppBar: true,
         extendBody: true,
         body: Consumer<NavigationProvider>(builder: (context, provider, _) {
           return PageView(
@@ -40,7 +41,7 @@ class MainPage extends StatelessWidget {
                 showSelectedLabels: false,
                 showUnselectedLabels: false,
                 type: BottomNavigationBarType.fixed,
-                backgroundColor: const Color(0xff121921).withOpacity(0.75),
+                backgroundColor: const Color(0xffD9D9D9).withOpacity(0.17),
                 selectedItemColor: const Color(0xffA28D4F),
                 items: provider.bottomNavigationBarItems,
               ),

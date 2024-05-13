@@ -27,7 +27,7 @@ class CustomTexfield extends StatelessWidget {
           hintStyle: const TextStyle(fontStyle: FontStyle.italic),
           border: InputBorder.none,
           contentPadding: const EdgeInsets.all(18),
-          suffix: suffix,
+          suffixIcon: suffix,
         ),
       ),
     );
