@@ -24,8 +24,26 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 15),
-            const CustomSearchBar(
-              hintText: 'Search',
+            const CustomSearchBar(hintText: 'Search'),
+            const SizedBox(height: 30),
+            Stack(
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30),
+                      ),
+                      color: Colors.white),
+                  child: const Column(
+                    children: [
+                      Text('BASED ON YOUR LAST READ'),
+                    ],
+                  ),
+                )
+              ],
             )
           ],
         ),
