@@ -3,7 +3,9 @@ import 'package:dreampage/components/app_appbar.dart';
 import 'package:dreampage/utils/scale_size.dart';
 import 'package:dreampage/views/home/providers/carousel_provider.dart';
 import 'package:dreampage/views/home/widgets/custom_search_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 class HomePageWrapper extends StatelessWidget {
@@ -27,7 +29,8 @@ class HomePage extends StatelessWidget {
       backgroundColor: const Color(0xff101624),
       appBar: const AppAppBar(textTitle: 'D R E A M P A G E'),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.fromLTRB(
+            8, 8, 8, kBottomNavigationBarHeight + 8.0),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -38,12 +41,18 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 15),
+
+              // Search Bar
               const CustomSearchBar(hintText: 'Search'),
+
               const SizedBox(height: 30),
+
+              //
               Consumer<CarouselProvider>(
                 builder: (context, provider, _) {
                   return Stack(
                     children: [
+                      // white box
                       Container(
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height * 0.3,
@@ -100,9 +109,40 @@ class HomePage extends StatelessWidget {
                               onPageChanged: (index, reason) =>
                                   provider.changeCarouselImage(index),
                             ),
-                          )
+                          ),
                         ],
                       ),
+                      Positioned(
+                        bottom: 30,
+                        left: 0,
+                        right: 0,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                // TODO: IMPLEMENT ONTAP FUNCTION FOR DETAIL
+                              },
+                              child: const Text(
+                                'View Details',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 60),
+                            IconButton(
+                                onPressed: () {
+                                  // TODO: IMPLEMENT ONTAP FUNCTION FOR BOOKMARK
+                                },
+                                icon: const Icon(
+                                  Icons.bookmark_add_outlined,
+                                  color: Colors.white,
+                                  size: 25,
+                                ))
+                          ],
+                        ),
+                      )
                     ],
                   );
                 },

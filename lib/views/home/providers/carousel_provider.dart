@@ -8,6 +8,9 @@ class CarouselProvider extends ChangeNotifier {
   final CarouselController carouselController = CarouselController();
   int currentIndex = 0;
 
+  List<String> get booksImage =>
+      repositoryMock.books.map((books) => books.coverImgSrc).toList();
+
   void changeCarouselImage(int index) {
     currentIndex = index;
     notifyListeners();
