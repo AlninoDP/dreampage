@@ -1,13 +1,17 @@
 class Books {
+  final int id;
   final String title;
   final String author;
   final String coverImgSrc;
+  final bool isFavorite;
   final ReadingStatus status;
 
   Books({
+    required this.id,
     required this.title,
     required this.author,
     required this.coverImgSrc,
+    this.isFavorite = false,
     this.status = ReadingStatus.unread,
   });
 }
