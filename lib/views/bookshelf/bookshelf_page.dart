@@ -2,6 +2,7 @@ import 'package:dreampage/components/app_appbar.dart';
 import 'package:dreampage/views/bookshelf/provider/bookshelf_provider.dart';
 import 'package:dreampage/views/bookshelf/widgets/bookshelf_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 class BookshelfPageWrapper extends StatelessWidget {
@@ -167,6 +168,7 @@ class BookshelfPage extends StatelessWidget {
                                         IconButton(
                                             onPressed: () {
                                               // TODO: IMPLEMENT ONTAP FUNCTION
+                                              context.pushNamed('detail');
                                             },
                                             icon: const Row(
                                               children: [

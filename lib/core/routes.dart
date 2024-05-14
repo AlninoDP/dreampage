@@ -1,4 +1,5 @@
 import 'package:dreampage/views/about_app/about_app_page.dart';
+import 'package:dreampage/views/book_detail/book_detail_page.dart';
 import 'package:dreampage/views/landing_page/landing_page.dart';
 import 'package:dreampage/views/login/login_page.dart';
 import 'package:dreampage/views/main_page/main_page.dart';
@@ -45,6 +46,11 @@ final appRoutes = GoRouter(
       path: '/about',
       name: 'about',
       builder: (context, state) => const AboutApp(),
+    ),
+    GoRoute(
+      path: '/detail',
+      name: 'detail',
+      builder: (context, state) => const BookDetailPage(),
     ),
   ],
 );
