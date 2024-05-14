@@ -1,6 +1,7 @@
 import 'package:dreampage/views/bookshelf/bookshelf_page.dart';
 import 'package:dreampage/views/favorite/favorite_page.dart';
 import 'package:dreampage/views/home/home_page.dart';
+import 'package:dreampage/views/user_profile/user_profile_page.dart';
 import 'package:flutter/material.dart';
 
 class NavigationProvider extends ChangeNotifier {
@@ -63,12 +64,7 @@ class NavigationProvider extends ChangeNotifier {
     const HomePageWrapper(),
     const BookshelfPageWrapper(),
     const FavoritePageWrapper(),
-    Container(
-      width: double.infinity,
-      height: double.infinity,
-      color: Colors.purple,
-      child: Text('4'),
-    ),
+    const UserProfilePage(),
   ];
 
   int currentIndex = 0;

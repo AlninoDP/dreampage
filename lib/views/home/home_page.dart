@@ -27,8 +27,8 @@ class HomePage extends StatelessWidget {
       backgroundColor: const Color(0xff101624),
       appBar: const AppAppBar(textTitle: 'D R E A M P A G E'),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(
-            8, 8, 8, kBottomNavigationBarHeight + 8.0),
+        padding:
+            const EdgeInsets.fromLTRB(8, 8, 8, kBottomNavigationBarHeight - 15),
         child: SingleChildScrollView(
           child: Column(
             children: [
