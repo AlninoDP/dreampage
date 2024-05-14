@@ -8,27 +8,24 @@ class CarouselProvider extends ChangeNotifier {
   final CarouselController carouselController = CarouselController();
   int currentIndex = 0;
 
-  List<String> get booksImage =>
-      repositoryMock.books.map((books) => books.coverImgSrc).toList();
-
   void changeCarouselImage(int index) {
     currentIndex = index;
     notifyListeners();
   }
 
   String getCurrentBookTitle() {
-    final List<Books> books = repositoryMock.books;
-    return books[currentIndex].title;
+    final List<Books> recBooks = repositoryMock.recBooks;
+    return recBooks[currentIndex].title;
   }
 
   String getCurrentBookAuthor() {
-    final List<Books> books = repositoryMock.books;
-    return books[currentIndex].author;
+    final List<Books> recBooks = repositoryMock.recBooks;
+    return recBooks[currentIndex].author;
   }
 
   List<Widget> get booksSliders {
-    final List<Books> books = repositoryMock.books;
-    return books
+    final List<Books> recBooks = repositoryMock.recBooks;
+    return recBooks
         .map((book) => SizedBox(
               child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(5.0)),
