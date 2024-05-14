@@ -26,7 +26,7 @@ class BookshelfPage extends StatelessWidget {
       top: true,
       child: Scaffold(
           backgroundColor: const Color(0xff101624),
-          appBar: const AppAppBar(textTitle: 'M Y B O O K S H E L F'),
+          appBar: const AppAppBar(textTitle: 'M Y  B O O K  S H E L F'),
           body: Consumer<BookshelfProvider>(
             builder: (context, provider, _) {
               final books = provider.books;
