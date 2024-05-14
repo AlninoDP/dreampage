@@ -3,9 +3,7 @@ import 'package:dreampage/components/app_appbar.dart';
 import 'package:dreampage/utils/scale_size.dart';
 import 'package:dreampage/views/home/providers/carousel_provider.dart';
 import 'package:dreampage/views/home/widgets/custom_search_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 class HomePageWrapper extends StatelessWidget {
@@ -112,6 +110,7 @@ class HomePage extends StatelessWidget {
                           ),
                         ],
                       ),
+
                       Positioned(
                         bottom: 30,
                         left: 0,
@@ -127,19 +126,23 @@ class HomePage extends StatelessWidget {
                                 'View Details',
                                 style: TextStyle(
                                   color: Colors.white,
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: Colors.white,
+                                  decorationThickness: 1,
                                 ),
                               ),
                             ),
                             const SizedBox(width: 60),
                             IconButton(
-                                onPressed: () {
-                                  // TODO: IMPLEMENT ONTAP FUNCTION FOR BOOKMARK
-                                },
-                                icon: const Icon(
-                                  Icons.bookmark_add_outlined,
-                                  color: Colors.white,
-                                  size: 25,
-                                ))
+                              onPressed: () {
+                                // TODO: IMPLEMENT ONTAP FUNCTION FOR BOOKMARK
+                              },
+                              icon: const Icon(
+                                Icons.bookmark_add_outlined,
+                                color: Colors.white,
+                                size: 25,
+                              ),
+                            )
                           ],
                         ),
                       )
