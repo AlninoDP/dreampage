@@ -43,7 +43,7 @@ class MainPage extends StatelessWidget {
                 showSelectedLabels: false,
                 showUnselectedLabels: false,
                 type: BottomNavigationBarType.fixed,
-                backgroundColor: const Color(0xffD9D9D9).withOpacity(0.17),
+                backgroundColor: const Color(0xff121921).withOpacity(0.9),
                 selectedItemColor: const Color(0xffA28D4F),
                 items: provider.bottomNavigationBarItems,
               ),

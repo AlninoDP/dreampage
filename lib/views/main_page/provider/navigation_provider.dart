@@ -60,7 +60,7 @@ class NavigationProvider extends ChangeNotifier {
 
   final List<Widget> pages = [
     const HomePageWrapper(),
-    const BookshelfPage(),
+    const BookshelfPageWrapper(),
     Container(
       width: double.infinity,
       height: double.infinity,
