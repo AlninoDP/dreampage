@@ -27,7 +27,9 @@ class MainPage extends StatelessWidget {
         body: Consumer<NavigationProvider>(builder: (context, provider, _) {
           return PageView(
             controller: provider.pageController,
-            onPageChanged: (index) => provider.currentIndex = index,
+            onPageChanged: (index) {
+              provider.changePage(index);
+            },
             children: provider.pages,
           );
         }),
@@ -36,7 +38,7 @@ class MainPage extends StatelessWidget {
             return ClipPath(
               clipper: _BottomAppBarClipper(),
               child: BottomNavigationBar(
-                onTap: (index) => provider.changePage(index),
+                onTap: (index) => provider.onItemTapped(index),
                 currentIndex: provider.currentIndex,
                 showSelectedLabels: false,
                 showUnselectedLabels: false,

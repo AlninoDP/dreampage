@@ -83,12 +83,19 @@ class NavigationProvider extends ChangeNotifier {
   final PageController pageController = PageController();
 
   void changePage(int index) {
+    currentIndex = index;
+    notifyListeners();
+  }
+
+  void onItemTapped(int index) {
+    currentIndex = index;
+
     pageController.animateToPage(
       index,
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeIn,
     );
-    currentIndex = index;
+
     notifyListeners();
   }
 }
