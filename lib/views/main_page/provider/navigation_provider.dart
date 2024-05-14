@@ -1,3 +1,4 @@
+import 'package:dreampage/views/bookshelf/bookshelf.dart';
 import 'package:dreampage/views/home/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -59,12 +60,7 @@ class NavigationProvider extends ChangeNotifier {
 
   final List<Widget> pages = [
     const HomePageWrapper(),
-    Container(
-      width: double.infinity,
-      height: double.infinity,
-      color: Colors.green,
-      child: Text('2'),
-    ),
+    const BookshelfPage(),
     Container(
       width: double.infinity,
       height: double.infinity,
