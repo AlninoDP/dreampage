@@ -19,7 +19,7 @@ class UserProfilePage extends StatelessWidget {
               const SizedBox(height: 20),
 
               // User Avatar
-              Center(
+              const Center(
                 child: CircleAvatar(
                   radius: 70,
                   backgroundImage: AssetImage(
@@ -125,7 +125,7 @@ class UserProfilePage extends StatelessWidget {
                         trailing:
                             const Icon(Icons.keyboard_arrow_right_rounded),
                         onTap: () {
-                          // TODO: IMPLEMENT ONTAP FUNCTION
+                          context.pushNamed('about');
                         },
                       ),
                     ],
