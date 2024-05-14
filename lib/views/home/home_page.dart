@@ -1,5 +1,7 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dreampage/components/app_appbar.dart';
-import 'package:dreampage/views/home/providers/home_page_provider.dart';
+import 'package:dreampage/utils/scale_size.dart';
+import 'package:dreampage/views/home/providers/carousel_provider.dart';
 import 'package:dreampage/views/home/widgets/custom_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +12,7 @@ class HomePageWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => HomePageProvider(),
+      create: (context) => CarouselProvider(),
       child: const HomePage(),
     );
   }
@@ -26,41 +28,87 @@ class HomePage extends StatelessWidget {
       appBar: const AppAppBar(textTitle: 'D R E A M P A G E'),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            const Center(
-              child: Text(
-                'Welcome Back, User',
-                style: TextStyle(color: Colors.white, fontSize: 24),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const Center(
+                child: Text(
+                  'Welcome Back, User',
+                  style: TextStyle(color: Colors.white, fontSize: 24),
+                ),
               ),
-            ),
-            const SizedBox(height: 15),
-            const CustomSearchBar(hintText: 'Search'),
-            const SizedBox(height: 30),
-            Consumer<HomePageProvider>(
-              builder: (context, provider, _) {
-                return Stack(
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 0.3,
-                      decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(30),
-                            topRight: Radius.circular(30),
-                          ),
-                          color: Colors.white),
-                      child: Column(
+              const SizedBox(height: 15),
+              const CustomSearchBar(hintText: 'Search'),
+              const SizedBox(height: 30),
+              Consumer<CarouselProvider>(
+                builder: (context, provider, _) {
+                  return Stack(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height * 0.3,
+                        decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(50),
+                              topRight: Radius.circular(50),
+                            ),
+                            color: Colors.white),
+                      ),
+                      Column(
                         children: [
+                          const SizedBox(height: 30),
                           const Text('BASED ON YOUR LAST READ'),
+                          const SizedBox(height: 12),
+                          Column(
+                            children: [
+                              Text(
+                                provider.getCurrentBookTitle(),
+                                textScaler: TextScaler.linear(
+                                    ScaleSize.textScaleFactor(context)),
+                                style: const TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              const SizedBox(height: 12),
+                              Text(
+                                provider.getCurrentBookAuthor(),
+                                textScaler: TextScaler.linear(
+                                    ScaleSize.textScaleFactor(context)),
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 30),
+
+                          // Carousel Image
+                          CarouselSlider(
+                            items: provider.booksSliders,
+                            carouselController: provider.carouselController,
+                            options: CarouselOptions(
+                              autoPlay: true,
+                              aspectRatio: 1,
+                              enlargeCenterPage: true,
+                              viewportFraction: 0.6,
+                              enlargeStrategy: CenterPageEnlargeStrategy.scale,
+                              autoPlayAnimationDuration:
+                                  const Duration(seconds: 4),
+                              autoPlayCurve: Curves.fastOutSlowIn,
+                              onPageChanged: (index, reason) =>
+                                  provider.changeCarouselImage(index),
+                            ),
+                          )
                         ],
                       ),
-                    )
-                  ],
-                );
-              },
-            )
-          ],
+                    ],
+                  );
+                },
+              )
+            ],
+          ),
         ),
       ),
     );
