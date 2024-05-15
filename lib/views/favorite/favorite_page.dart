@@ -3,6 +3,7 @@ import 'package:dreampage/utils/scale_size.dart';
 import 'package:dreampage/views/favorite/provider/favorite_page_provider.dart';
 import 'package:dreampage/views/favorite/widgets/grid_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 class FavoritePageWrapper extends StatelessWidget {
@@ -87,11 +88,15 @@ class FavoritePage extends StatelessWidget {
                         itemBuilder: (context, index) {
                           final item = provider.favBooks[index];
                           return GridMenu(
-                            imageSrc: item.coverImgSrc,
+                            imageSrc: item.bookImgSrc,
                             bookTitle: item.title,
                             bookAuthor: item.author,
                             onTap: () {
                               // TODO: IMPLEMENT ONTAP FUNCTION
+                              context.pushNamed(
+                                'detail',
+                                extra: item,
+                              );
                             },
                           );
                         },

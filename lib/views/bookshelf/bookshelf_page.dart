@@ -139,7 +139,7 @@ class BookshelfPage extends StatelessWidget {
                                     height: 133,
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
-                                        image: AssetImage(item.coverImgSrc),
+                                        image: AssetImage(item.bookImgSrc),
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -167,7 +167,6 @@ class BookshelfPage extends StatelessWidget {
                                         ),
                                         IconButton(
                                             onPressed: () {
-                                              // TODO: IMPLEMENT ONTAP FUNCTION
                                               context.pushNamed(
                                                 'detail',
                                                 extra: item,

@@ -39,7 +39,7 @@ class CarouselProvider extends ChangeNotifier {
                   children: <Widget>[
                     // Book cover image
                     Image.asset(
-                      book.coverImgSrc,
+                      book.bookImgSrc,
                       fit: BoxFit.contain,
                       height: 300,
                       width: 400,
