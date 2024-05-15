@@ -1,3 +1,4 @@
+import 'package:dreampage/models/books.dart';
 import 'package:dreampage/views/about_app/about_app_page.dart';
 import 'package:dreampage/views/book_detail/book_detail_page.dart';
 import 'package:dreampage/views/landing_page/landing_page.dart';
@@ -50,7 +51,12 @@ final appRoutes = GoRouter(
     GoRoute(
       path: '/detail',
       name: 'detail',
-      builder: (context, state) => const BookDetailPage(),
+      builder: (context, state) {
+        final Books books = state.extra as Books;
+        return BookDetailPage(
+          books: books,
+        );
+      },
     ),
   ],
 );
