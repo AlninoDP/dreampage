@@ -168,7 +168,10 @@ class BookshelfPage extends StatelessWidget {
                                         IconButton(
                                             onPressed: () {
                                               // TODO: IMPLEMENT ONTAP FUNCTION
-                                              context.pushNamed('detail');
+                                              context.pushNamed(
+                                                'detail',
+                                                extra: item,
+                                              );
                                             },
                                             icon: const Row(
                                               children: [

@@ -121,6 +121,7 @@ class HomePage extends StatelessWidget {
                             GestureDetector(
                               onTap: () {
                                 // TODO: IMPLEMENT ONTAP FUNCTION FOR DETAIL
+                                provider.goToBookDetail(context);
                               },
                               child: const Text(
                                 'View Details',
@@ -134,15 +135,21 @@ class HomePage extends StatelessWidget {
                             ),
                             const SizedBox(width: 60),
                             IconButton(
-                              onPressed: () {
-                                // TODO: IMPLEMENT ONTAP FUNCTION FOR BOOKMARK
-                              },
-                              icon: const Icon(
-                                Icons.bookmark_add_outlined,
-                                color: Colors.white,
-                                size: 25,
-                              ),
-                            )
+                                onPressed: () {
+                                  // TODO: IMPLEMENT ONTAP FUNCTION FOR BOOKMARK
+                                },
+                                icon:
+                                    (provider.getCurrentBookFavStatus() == true)
+                                        ? const Icon(
+                                            Icons.bookmark_outline_outlined,
+                                            color: Colors.white,
+                                            size: 25,
+                                          )
+                                        : const Icon(
+                                            Icons.bookmark,
+                                            color: Colors.white,
+                                            size: 25,
+                                          ))
                           ],
                         ),
                       )

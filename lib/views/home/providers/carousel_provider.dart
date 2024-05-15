@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_controller.dart';
 import 'package:dreampage/data/repository/books_repository_mock.dart';
 import 'package:dreampage/models/books.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CarouselProvider extends ChangeNotifier {
   final BooksRepositoryMock repositoryMock = BooksRepositoryMock();
@@ -11,6 +12,11 @@ class CarouselProvider extends ChangeNotifier {
   void changeCarouselImage(int index) {
     currentIndex = index;
     notifyListeners();
+  }
+
+  bool getCurrentBookFavStatus() {
+    final List<Books> recBooks = repositoryMock.recBooks;
+    return recBooks[currentIndex].isFavorite;
   }
 
   String getCurrentBookTitle() {
@@ -43,5 +49,11 @@ class CarouselProvider extends ChangeNotifier {
               ),
             ))
         .toList();
+  }
+
+  void goToBookDetail(BuildContext context) {
+    final books = repositoryMock.recBooks;
+    final selectedBook = books[currentIndex];
+    context.pushNamed('detail', extra: selectedBook);
   }
 }
