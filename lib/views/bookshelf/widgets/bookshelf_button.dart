@@ -23,7 +23,7 @@ class BookshelfButton extends StatelessWidget {
         onTap: onTap ?? () {},
         borderRadius: BorderRadius.circular(40),
         child: Container(
-          width: 85,
+          width: 100,
           height: 30,
           padding: const EdgeInsets.fromLTRB(11, 5, 11, 5),
           decoration: BoxDecoration(
@@ -33,13 +33,15 @@ class BookshelfButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                btnText1,
-                style: TextStyle(color: txtColor),
+              Expanded(
+                child: Text(
+                  btnText1,
+                  style: TextStyle(color: txtColor, fontSize: 12),
+                ),
               ),
               Text(
                 btnText2,
-                style: TextStyle(color: txtColor),
+                style: TextStyle(color: txtColor, fontSize: 12),
               ),
             ],
           ),

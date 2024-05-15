@@ -49,7 +49,6 @@ class NavigationProvider extends ChangeNotifier {
         width: 30,
         height: 30,
       ),
-      backgroundColor: Colors.red,
       label: '',
       activeIcon: Image.asset(
         'assets/icons/btm_nav_icon_4.png',
@@ -78,11 +77,7 @@ class NavigationProvider extends ChangeNotifier {
   void onItemTapped(int index) {
     currentIndex = index;
 
-    pageController.animateToPage(
-      index,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeIn,
-    );
+    pageController.jumpToPage(index);
 
     notifyListeners();
   }

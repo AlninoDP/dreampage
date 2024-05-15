@@ -49,21 +49,24 @@ class BookshelfPage extends StatelessWidget {
                         // Header
                         Padding(
                           padding: const EdgeInsets.fromLTRB(25, 10, 20, 10),
-                          child: RichText(
-                            text: TextSpan(
-                              text: 'You currently have ',
-                              style: const TextStyle(
-                                fontSize: 18,
-                                color: Colors.black,
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: books.length.toString(),
-                                  style: const TextStyle(
-                                      color: Color(0xffA28D4F), fontSize: 48),
+                          child: Expanded(
+                            child: RichText(
+                              textAlign: TextAlign.center,
+                              text: TextSpan(
+                                text: 'You currently have ',
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
                                 ),
-                                const TextSpan(text: ' books in your shelf')
-                              ],
+                                children: [
+                                  TextSpan(
+                                    text: books.length.toString(),
+                                    style: const TextStyle(
+                                        color: Color(0xffA28D4F), fontSize: 48),
+                                  ),
+                                  const TextSpan(text: ' books in your shelf')
+                                ],
+                              ),
                             ),
                           ),
                         ),

@@ -30,54 +30,56 @@ class AboutApp extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
-                child: Column(
-                  children: [
-                    Text(
-                      listText[0],
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Text(
+                        listText[0],
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      listText[1],
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
+                      const SizedBox(
+                        height: 20,
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      listText[2],
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
+                      Text(
+                        listText[1],
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      listText[3],
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
+                      const SizedBox(height: 20),
+                      Text(
+                        listText[2],
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                    const Text(
-                      'version app - 1.0.0.0',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Color(0xff7D848D),
+                      const SizedBox(height: 20),
+                      Text(
+                        listText[3],
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    )
-                  ],
+                      const SizedBox(height: 20),
+                      const Text(
+                        'version app - 1.0.0.0',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Color(0xff7D848D),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               )),
         ));

@@ -74,6 +74,7 @@ class HomePage extends StatelessWidget {
                             children: [
                               Text(
                                 provider.getCurrentBookTitle(),
+                                textAlign: TextAlign.center,
                                 textScaler: TextScaler.linear(
                                     ScaleSize.textScaleFactor(context)),
                                 style: const TextStyle(
