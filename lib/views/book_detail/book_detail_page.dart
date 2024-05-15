@@ -1,29 +1,113 @@
 import 'package:flutter/material.dart';
 
+const testTxt = '''
+Apakah Anda terus menunda-nunda?
+Apakah Anda merasa gelisah dan tidak dapat fokus pada pekerjaan Anda?
+Apakah Anda mengalami kesulitan untuk bersemangat tentang tujuan utama? 
+Jika demikian, Anda mungkin memerlukan detoksifikasi dopamin.
+''';
+
 class BookDetailPage extends StatelessWidget {
   const BookDetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: true,
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                height: MediaQuery.of(context).size.height * 0.6,
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/books/dopamine_detox.png'),
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              )
-            ],
+    final coverImgHeight = MediaQuery.of(context).size.height * 0.6;
+    return Scaffold(
+      body: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.6,
+            width: MediaQuery.of(context).size.width,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image:
+                    AssetImage('assets/images/cover_books/dopamine_cover.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-        ),
+          Positioned(
+            top: coverImgHeight - 100,
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              height: MediaQuery.of(context).size.height * 0.6,
+              width: MediaQuery.of(context).size.width,
+              decoration: const BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40),
+                  topRight: Radius.circular(40),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 30),
+                  const Text(
+                    'Dopamine Detox',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                  ),
+                  const Text(
+                    'Thibaut Meurisse',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Color(0xff7D848D),
+                    ),
+                  ),
+                  const SizedBox(height: 25),
+                  const Text(
+                    'Synopsis',
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+
+                  // Texy Synopsis
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 200,
+                    padding: const EdgeInsets.all(10),
+                    color: Colors.white,
+                    child: const SingleChildScrollView(
+                      child: Text(
+                        testTxt,
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Color(0xff7D848D),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  // Read Button
+
+                  SizedBox(
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xffA28D4F),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'READ',
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 16),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
