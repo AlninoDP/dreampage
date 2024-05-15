@@ -9,14 +9,14 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final splashTime = 2;
+  final splashTime = 1500;
 
   @override
   void initState() {
     super.initState();
 
     Future.delayed(
-      Duration(seconds: splashTime),
+      Duration(milliseconds: splashTime),
       () async {
         context.go('/');
       },

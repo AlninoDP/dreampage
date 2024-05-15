@@ -88,7 +88,7 @@ class SignInPage extends StatelessWidget {
                   text: 'Sign In',
                   onTap: () {
                     //TODO:Implement proper login ontap function
-                    context.push('/main');
+                    context.go('/main');
                   },
                 ),
 
