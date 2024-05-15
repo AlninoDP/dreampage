@@ -50,26 +50,24 @@ class FavoritePage extends StatelessWidget {
                       // Header
                       Padding(
                         padding: const EdgeInsets.fromLTRB(25, 10, 20, 10),
-                        child: Expanded(
-                          child: RichText(
-                            textAlign: TextAlign.center,
-                            textScaler: TextScaler.linear(
-                                ScaleSize.textScaleFactor(context)),
-                            text: TextSpan(
-                              text: 'You currently have ',
-                              style: const TextStyle(
-                                fontSize: 17,
-                                color: Colors.black,
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: favBooks.length.toString(),
-                                  style: const TextStyle(
-                                      color: Color(0xffA28D4F), fontSize: 48),
-                                ),
-                                const TextSpan(text: ' books in your favorite')
-                              ],
+                        child: RichText(
+                          textAlign: TextAlign.center,
+                          textScaler: TextScaler.linear(
+                              ScaleSize.textScaleFactor(context)),
+                          text: TextSpan(
+                            text: 'You currently have ',
+                            style: const TextStyle(
+                              fontSize: 17,
+                              color: Colors.black,
                             ),
+                            children: [
+                              TextSpan(
+                                text: favBooks.length.toString(),
+                                style: const TextStyle(
+                                    color: Color(0xffA28D4F), fontSize: 48),
+                              ),
+                              const TextSpan(text: ' books in your favorite')
+                            ],
                           ),
                         ),
                       ),
