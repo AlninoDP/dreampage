@@ -1,6 +1,8 @@
 import 'package:dreampage/models/books.dart';
 import 'package:dreampage/views/book_detail/widgets/read_button.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 const testTxt = '''
 Apakah Anda terus menunda-nunda?
@@ -18,6 +20,16 @@ class BookDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Function to launch the Google Drive link
+    _launchGoogleDriveLink() async {
+      const googleDriveLink = 'https://drive.google.com/';
+      if (await canLaunchUrlString(googleDriveLink)) {
+        await launchUrlString(googleDriveLink);
+      } else {
+        throw 'Could not launch $googleDriveLink';
+      }
+    }
+
     final coverImgHeight = MediaQuery.of(context).size.height * 0.6;
     return SafeArea(
       top: true,
@@ -110,6 +122,7 @@ class BookDetailPage extends StatelessWidget {
                       ReadButton(
                         onTap: () {
                           // TODO: IMPLEMENT ONTAP FUNCTION
+                          _launchGoogleDriveLink();
                         },
                       )
                     ],
