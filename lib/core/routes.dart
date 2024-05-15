@@ -53,7 +53,7 @@ final appRoutes = GoRouter(
       name: 'detail',
       builder: (context, state) {
         final Books books = state.extra as Books;
-        return BookDetailPage(
+        return BookDetailPageWrapper(
           books: books,
         );
       },

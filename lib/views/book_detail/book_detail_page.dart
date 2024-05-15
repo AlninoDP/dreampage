@@ -1,15 +1,25 @@
 import 'package:dreampage/models/books.dart';
+import 'package:dreampage/views/book_detail/provider/book_detail_provider.dart';
 import 'package:dreampage/views/book_detail/widgets/read_button.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:provider/provider.dart';
 
-const testTxt = '''
-Apakah Anda terus menunda-nunda?
-Apakah Anda merasa gelisah dan tidak dapat fokus pada pekerjaan Anda?
-Apakah Anda mengalami kesulitan untuk bersemangat tentang tujuan utama? 
-Jika demikian, Anda mungkin memerlukan detoksifikasi dopamin.
-''';
+class BookDetailPageWrapper extends StatelessWidget {
+  const BookDetailPageWrapper({
+    super.key,
+    required this.books,
+  });
+  final Books books;
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (context) => BookDetailProvider(),
+      child: BookDetailPage(
+        books: books,
+      ),
+    );
+  }
+}
 
 class BookDetailPage extends StatelessWidget {
   const BookDetailPage({
@@ -20,16 +30,6 @@ class BookDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Function to launch the Google Drive link
-    _launchGoogleDriveLink() async {
-      const googleDriveLink = 'https://drive.google.com/';
-      if (await canLaunchUrlString(googleDriveLink)) {
-        await launchUrlString(googleDriveLink);
-      } else {
-        throw 'Could not launch $googleDriveLink';
-      }
-    }
-
     final coverImgHeight = MediaQuery.of(context).size.height * 0.6;
     return SafeArea(
       top: true,
@@ -75,7 +75,7 @@ class BookDetailPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 10),
                       Text(
                         books.title,
                         style: const TextStyle(
@@ -88,11 +88,11 @@ class BookDetailPage extends StatelessWidget {
                           color: Color(0xff7D848D),
                         ),
                       ),
-                      const SizedBox(height: 25),
+                      const SizedBox(height: 18),
                       const Text(
                         'Synopsis',
                         style: TextStyle(
-                          fontSize: 28,
+                          fontSize: 24,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -109,7 +109,7 @@ class BookDetailPage extends StatelessWidget {
                               books.synopsis,
                               textAlign: TextAlign.left,
                               style: const TextStyle(
-                                fontSize: 20,
+                                fontSize: 17,
                                 color: Color(0xff7D848D),
                               ),
                             ),
@@ -122,7 +122,9 @@ class BookDetailPage extends StatelessWidget {
                       ReadButton(
                         onTap: () {
                           // TODO: IMPLEMENT ONTAP FUNCTION
-                          _launchGoogleDriveLink();
+                          Provider.of<BookDetailProvider>(context,
+                                  listen: false)
+                              .readBook(context, books);
                         },
                       )
                     ],
