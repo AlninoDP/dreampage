@@ -4,6 +4,7 @@ import 'package:dreampage/utils/scale_size.dart';
 import 'package:dreampage/views/home/providers/carousel_provider.dart';
 import 'package:dreampage/views/home/widgets/custom_search_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class HomePageWrapper extends StatelessWidget {
@@ -25,7 +26,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xff101624),
-      appBar: const AppAppBar(textTitle: 'D R E A M P A G E'),
+      appBar: AppAppBar(
+        textTitle: 'DreamPage',
+        textStyle: GoogleFonts.monteCarlo(fontSize: 30, color: Colors.white),
+      ),
       body: Padding(
         padding:
             const EdgeInsets.fromLTRB(8, 8, 8, kBottomNavigationBarHeight - 15),
@@ -120,7 +124,6 @@ class HomePage extends StatelessWidget {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                // TODO: IMPLEMENT ONTAP FUNCTION FOR DETAIL
                                 provider.goToBookDetail(context);
                               },
                               child: const Text(
