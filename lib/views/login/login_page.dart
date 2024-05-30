@@ -27,6 +27,7 @@ class LoginPage extends StatelessWidget {
     return SafeArea(
       top: true,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Consumer<LoginPageProvider>(
           builder: (context, provider, child) {
             return PageView(

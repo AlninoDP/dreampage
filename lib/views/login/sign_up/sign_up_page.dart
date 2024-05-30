@@ -28,6 +28,7 @@ class SignUpPage extends StatelessWidget {
                 const SizedBox(height: 10),
                 const Text(
                   'Please fill the details and create account',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
                     color: Color(0xff7D848D),
